@@ -1,0 +1,17 @@
+{
+  "name": "skill_test",
+  "version": "1.0.0",
+  "description": "development of placement cell (skill test)",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rishabh Tomar",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.7",
+    "express": "^4.18.1",
+    "mongoose": "^6.3.2"
+  }
+}
