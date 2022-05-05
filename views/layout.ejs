@@ -7,15 +7,20 @@
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/layout.css">
+    <%- style %>
 </head>
 <body>
-<%- include('_header') -%>
+<%- include('_header') %>
 
-<%- body %> 
+<main>
+    <%- body %>
+</main>
 <!-- the above body will fill itself the required ejs file 
      for example if home is to be rendered then it will home .ejs as its body -->
 
 
-<%- include('_footer') -%>
+<%- include('_footer') %>
+
+<%- script %>
 </body>
 </html>

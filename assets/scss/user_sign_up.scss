@@ -1,0 +1,66 @@
+#sign-up-div{
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-around;
+    #user_sign_up{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+       
+        background-color: rgb(179, 179, 174);
+        width:30%;
+        height:350px;
+        #for-google-signup{
+            border: 1px solid black;
+            width:70%;
+            height:30px;
+            text-align: center;
+            padding-top: 9px;
+            background-color: rgb(224, 131, 8);
+            
+            a{
+                text-decoration: none;
+                margin-top: 2px;
+                color: antiquewhite;
+                
+            }
+            a:hover{
+                
+            }
+        }
+
+        #for-google-signup:hover{
+            background-color: rgb(184, 123, 43) ;
+        }
+
+        #user_sign_up_form{
+            text-align: center;
+    
+           
+    
+            input{
+                margin:2px;
+                width:70%;
+                height:35px;
+                border: 1px solid rgb(158, 140, 140);
+                background-color:rgb(179, 179, 174);
+                border-radius: 5px;
+            }
+        }
+    
+
+    }
+    hr{
+        color: black;
+    }
+    #for-sign-in{
+        border-top: 1px solid rgb(14, 13, 13);
+        width:70%;
+        text-align: center;
+        margin-top: -5px;
+        padding-top: 8px;
+
+    }
+    
+}
+
