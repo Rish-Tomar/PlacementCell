@@ -1,0 +1,21 @@
+#header{
+    width:100%;
+    height:50px;
+    display: flex;
+    background-color: rgb(219, 167, 116);
+    padding:2px; 
+    display: flex;
+    justify-content:space-between;
+    strong{
+        padding-top: 10px;
+        padding-left: 10px;
+    }
+    div{
+        padding-top:10px ;
+        a {
+            padding:5px;
+            margin-right: 3px;
+        }
+
+    }    
+}

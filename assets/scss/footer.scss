@@ -1,0 +1,11 @@
+#footer{
+    width:100%;
+    height:50px;
+    display: flex;
+    background-color: rgb(219, 167, 116);
+    padding:2px;
+    #footer-div{
+        display: flex;
+        overflow:inherit;
+    }
+}

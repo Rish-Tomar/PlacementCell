@@ -1,0 +1,9 @@
+#footer {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  background-color: #dba774;
+  padding: 2px; }
+  #footer #footer-div {
+    display: flex;
+    overflow: inherit; }
