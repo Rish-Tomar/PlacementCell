@@ -1,0 +1,29 @@
+div{
+    display: flex;
+    flex-direction: row;
+
+    #table1{
+        margin-left: 25%;
+    }
+    #table2{
+        margin-left: 15%;
+    }
+    //common style for both the tables
+    table{
+        // border: 1px solid black;
+        width:23%;
+        margin-top: 20px;
+        tr{    
+            td{
+                width: 50px;
+                padding:8px;
+                margin-right: 3px;
+                border-bottom: 1px solid rgb(241, 240, 240);
+            }
+            th{
+                border-bottom: 1px solid rgb(235, 235, 235);
+                text-align: left;
+            }
+        }
+    }
+}

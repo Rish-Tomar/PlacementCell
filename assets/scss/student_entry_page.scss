@@ -1,0 +1,53 @@
+div{
+    margin: auto;
+    width:80%;
+    form{
+        display: flex;
+        flex-direction: column;
+        #inputs-div{
+
+            display: flex;
+            flex-direction: row;
+            border-radius: 5px;
+            background-color: rgb(78, 109, 98);
+            #student-details{
+                display:flex;
+                width:50%;
+                flex-direction: column;
+                padding:10px;
+            
+                input{
+                    padding: 3px;
+                    margin: 2px;
+                 }
+            }
+            #students-marks-interview{
+                display: flex;
+                width:50%;
+                flex-direction: column;
+                padding:10px;
+                input{
+                      padding: 3px;
+                      margin: 2px;
+                }
+            }
+        }
+        #button-div{
+            display: flex;
+            justify-content: space-around;
+            margin-top: 15px;   
+            button{
+                
+               
+            }  
+            button:hover{
+                background-color: rgb(140, 181, 218);
+                border: none;
+                border-radius: 5px;
+                padding:5px;
+            }     
+        }
+    }
+    
+   
+}

@@ -6,7 +6,7 @@ const res       = require('express/lib/response')
 const path      =require('path')
 const expressLayouts  = require('express-ejs-layouts')
 const sassMiddleware  = require('node-sass-middleware')
-
+const cookieParser    = require('cookie-parser')
 //some other requirements
 const app = express()
 
@@ -26,19 +26,25 @@ app.use(sassMiddleware({
        prefix: '/css'
    }))
 
-app.set('view engine','ejs')
-app.set('views',path.join(__dirname,'views'))
+//middleware for url requests and cookies  
+   app.use(express.urlencoded())
+   app.use(cookieParser())
 
-app.use(express.static('./assets'))
+//middleware for views
+   app.set('view engine','ejs')
+   app.set('views',path.join(__dirname,'views'))
+
+//middleware for excessing static's
+   app.use(express.static('./assets'))
 
 //call express layouts before routes as it routes will be requiring to render these layouts so should be loaded before routes
-app.use(expressLayouts)
+   app.use(expressLayouts)
 //extract styles and scripts from sub pages into the layout
-app.set('layout extractStyles',true)
-app.set('layout extractScripts',true)
+   app.set('layout extractStyles',true)
+   app.set('layout extractScripts',true)
 
-//use express router
-app.use('/',require('./routes'))
+//middleware for using router structure defined in routes folder
+   app.use('/',require('./routes'))
 
 
 //listining on port

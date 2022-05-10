@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="/css/student_entry_page.css">
+
+<h1>
+    Enter Student Details
+</h1>
+
+
+<div>
+    <form action="/student/create-student" method="post">
+        <div id="inputs-div">
+            <div id="student-details">
+                <input type="text"  name="batch"   id="batch"   placeholder="Enter Batch">
+        
+                <input type="text"  name="name"    id="name"    placeholder="Enter Student's Name">
+                <input type="email" name="email"   id="email"   placeholder="Enter his email">
+                <input type="text"  name="college" id="college" placeholder="college">
+                <input type="text"  name="status"  id="status"  placeholder="status">
+                <input type="number"name="mobileNumber"id="mobileNumber" placeholder="Student's mobile Number ">
+            </div>
+            <div id="students-marks-interview">
+                <input type="text"  name="ScoreDSA"   id="ScoreDSA"   placeholder="Enter ScoreDSA">
+                <input type="text"  name="ScoreWebD"  id="ScoreWebD"  placeholder="Enter ScoreWebD">
+                <input type="text"  name="ScoreReact" id="ScoreReact" placeholder="Enter ScoreReact">
+                <!-- <input type="text"  name="InterviewResult" id="InterviewResult" placeholder="Interview Result "> -->
+            </div>
+        </div>
+        <div id="button-div">
+            <button type="submit">Save Details</button>
+        </div> 
+    
+        
+    </form>
+</div>
