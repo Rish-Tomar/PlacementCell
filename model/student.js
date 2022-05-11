@@ -32,14 +32,16 @@ const studentSchema =new  mongoose.Schema({
             type:Number}
 
     },
-    interviews:{
+    interviews:[
+        {
         company:{
             type:String},
         date:{
             type:Date},
         result:{
             type:String}
-    }   
+        }
+        ]  
 })
 
 

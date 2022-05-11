@@ -7,9 +7,11 @@ module.exports.studentInput = (req,res)=>{
     })
 }
 
-module.exports.studentHomePage = (req,res)=>{
+module.exports.studentHomePage = async (req,res)=>{
+    const stdn =await Student.find({})
     return res.render('student_home',{
-        title:'student home'
+        title:'student home',
+        records:stdn
     })
 }
 

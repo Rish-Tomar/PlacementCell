@@ -1,3 +1,32 @@
-<p>this is student home </p>
 
-<a href="/student/student-input">e</a>
+<link rel="stylesheet" href="/css/student_home.css">
+<section id="student-home">
+    <div id="table-container-div">
+        <h4>Student Data</h4>
+        <table id="breif-details-table">
+            <tr id="table-header">
+                <th>Student's Name</th>
+                <th>Student's Batch</th>
+                <th>Placement Status</th>
+                <th>OPtions</th>
+            </tr>
+
+            <% records.forEach(function(record){ %>
+            <tr>
+                
+                <td><%= record.details.name%></td>
+                <td><%= record.batch %></td>
+                <td><%= record.details.status%></td>
+                <td><a href="/student/show-details"> See details</a></td>
+            </tr>
+            <% }) %>
+        
+        </table>
+        
+    </div>
+    <div id="redirect-to-entry-page">
+        <h4> <a href="/student/student-input">Enter Details of a new Student</a></h4>
+       
+    </div>
+
+</section>

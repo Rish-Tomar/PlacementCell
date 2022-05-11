@@ -1,0 +1,20 @@
+#student-home {
+  display: flex;
+  flex-direction: row; }
+  #student-home #table-container-div {
+    width: 50%;
+    margin-left: 15%; }
+    #student-home #table-container-div h4 {
+      margin-left: 38%; }
+    #student-home #table-container-div #breif-details-table {
+      border: 1px solid black; }
+      #student-home #table-container-div #breif-details-table #table-header th {
+        border: 1px solid #055817;
+        padding: 4px;
+        width: 12.5%; }
+      #student-home #table-container-div #breif-details-table tr td {
+        border: 1px solid black;
+        padding: 4px; }
+  #student-home #redirect-to-entry-page {
+    margin-top: 100px;
+    padding-left: 10%; }
