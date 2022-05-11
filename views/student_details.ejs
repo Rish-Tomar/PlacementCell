@@ -1,53 +1,43 @@
 
-<!-- <table id="record-table">
-<% records.forEach(function(record){ %>
-<tr>
-    <td><%= record.batch %></td>
-    <td><%= record.details.name%></td>
-    <td><%= record.details.email%></td>
-    <td><%= record.details.college%></td>
-</tr>
 
-
-<% }) %>
-</table> -->
+</table> 
 <link rel="stylesheet" href="/css/student_details.css">
 <div>
 <table id="table1">
     <tr>
         <th>Batch</th>
-        <td><%= records[0].batch %></td>
+        <td><%= record.batch %></td>
     </tr>
     <tr><th>Name</th>
-        <td><%= records[0].details.name%></td>
+        <td><%= record.details.name%></td>
     </tr>
     <tr>
         <th>Email</th>
-        <td><%= records[0].details.email%></td>
+        <td><%= record.details.email%></td>
     </tr>
     <tr>
         <th>College</th>
-        <td><%= records[0].details.college%></td>
+        <td><%= record.details.college%></td>
     </tr>
     <tr>
         <th>Status</th>
-        <td><%= records[0].details.status%></td>
+        <td><%= record.details.status%></td>
     </tr>
     <tr>
         <th>Mobile_Number</th>
-        <td><%= records[0].details.mobileNo%></td>
+        <td><%= record.details.mobileNo%></td>
     </tr>
     <tr>
         <th>DSA Score</th>
-        <td><%= records[0].Course_score.DSA%></td>
+        <td><%= record.Course_score.DSA%></td>
     </tr>
     <tr>
         <th>WebD Score</th>
-        <td><%= records[0].Course_score.WebD%></td>
+        <td><%= record.Course_score.WebD%></td>
     </tr>
     <tr>
         <th>React Score</th>
-        <td><%= records[0].Course_score.React%></td>
+        <td><%= record.Course_score.React%></td>
     </tr>
 </table>
 

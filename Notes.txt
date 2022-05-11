@@ -1,0 +1,22 @@
+
+/student/show-details/:somestring  :- this is the string params
+/student/show-details/?something  :- this is called Querry Params
+    
+
+passing a string params :-
+   
+     /student/show-details/:phonenumber
+
+     accessing this string params as in our node js use --> req.params
+
+passing a string params :-
+
+     /student/show-details/?phone= <%= phonenumber %>
+
+     for adding more params use & and add new param
+
+     /student/show-details/?phone= <%= phonenumber %> & name=<%= name %>
+
+     accessing this query params as in our node js use --> req.query
+
+

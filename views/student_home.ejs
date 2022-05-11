@@ -17,7 +17,7 @@
                 <td><%= record.details.name%></td>
                 <td><%= record.batch %></td>
                 <td><%= record.details.status%></td>
-                <td><a href="/student/show-details"> See details</a></td>
+                <td><a href="/student/show-details/?st_id=<%= record._id %>"> See details</a></td>
             </tr>
             <% }) %>
         
@@ -26,7 +26,7 @@
     </div>
     <div id="redirect-to-entry-page">
         <h4> <a href="/student/student-input">Enter Details of a new Student</a></h4>
-       
+        <h4> <a href="/student/download">Download</a></h4>
     </div>
 
 </section>

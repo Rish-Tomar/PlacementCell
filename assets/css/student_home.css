@@ -11,10 +11,12 @@
       #student-home #table-container-div #breif-details-table #table-header th {
         border: 1px solid #055817;
         padding: 4px;
-        width: 12.5%; }
+        width: 12.5%;
+        background-color: #9eebd4; }
       #student-home #table-container-div #breif-details-table tr td {
         border: 1px solid black;
-        padding: 4px; }
+        padding: 4px;
+        background-color: #dacebd; }
   #student-home #redirect-to-entry-page {
     margin-top: 100px;
     padding-left: 10%; }

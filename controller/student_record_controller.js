@@ -1,11 +1,15 @@
 const { redirect } = require('express/lib/response')
 const Student = require('../model/student')
+const { parse } = require('json2csv');
+const fs = require('fs')
+const path = require('path')
 
 module.exports.studentInput = (req,res)=>{
     return res.render('student_entry_page',{
         title:'student input'
     })
 }
+
 
 module.exports.studentHomePage = async (req,res)=>{
     const stdn =await Student.find({})
@@ -14,6 +18,7 @@ module.exports.studentHomePage = async (req,res)=>{
         records:stdn
     })
 }
+
 
 
 module.exports.createStudentRecord = async (req,res)=>{
@@ -56,12 +61,54 @@ module.exports.createStudentRecord = async (req,res)=>{
 
 
 module.exports.showDetails =async (req,res)=>{
-    const stdn =await Student.find({})
-    
-    console.log(stdn)
+
+    console.log(req.query.st_id)
+    const data =await Student.findById(req.query.st_id)
 
     return res.render('student_details',{
-        records:stdn,
+        record:data,
         title:'details'
     })
+}
+
+
+ 
+module.exports.handleDownloadFileAsCsv = async (req,res)=>{
+    try{
+        //fetch Students data from Students Collection
+        const documents = await Student.find({})
+        //preprocessing of data to simpler format to be stored in csv file
+        data = []
+        documents.forEach(document => {
+            let obj={
+                batch:  document.batch,              name:    document.details.name,
+                email:  document.details.email,      mobileNo:document.details.mobileNo,
+                college:  document.details.college,  status:  document.details.status,
+                DSA:      document.Course_score.DSA, WebD:    document.Course_score.WebD,
+                React:    document.Course_score.React,     
+            }
+            data.push(obj)            
+        });
+
+        //convert to csv
+        const fields = ['batch','name','email','mobileNo','college','status','DSA','WebD','React',];
+        const opts = { fields };
+        const csv = parse(data,opts);
+        console.log(csv);
+
+        //writing a csv file
+        try{fs.writeFileSync(path.join(__dirname,'../assets/files/details.csv'),csv)}
+        catch(err)
+        {   if(err){console.log('error in writing csv',err);}
+            //else
+            console.log('file written Successsfully');
+        }
+        // res.redirect('back')
+        res.download(path.join(__dirname,'../assets/files/details.csv'))
+        //downloading the file
+    }catch(err){
+        console.log('err',err);
+    }
+
+
 }
