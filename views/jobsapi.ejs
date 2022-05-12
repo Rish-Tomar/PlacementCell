@@ -1,0 +1,38 @@
+<head>
+    
+    <title><%= title %> </title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/layout.css">
+</head>
+
+    <%- include('_header') %>
+    
+   <section>
+       <ul style="list-style:none">
+        <% body.forEach((bd)=>{ %>
+
+            <li style="background-color:rgb(206, 231, 223) ;border-radius:5px;padding: 5px;margin-bottom:4px;margin-right: 20px;">
+                <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                    <h4><%= bd.company.display_name %></h4>
+                    <h4><%= bd.title%></h4>
+                    <h5 style="margin-right: 2%;"><a href="<%= bd.redirect_url%>">Apply</a></h5>
+                </div>
+                <p><h4>Job-Description</h4><%= bd.description %></p>
+                
+                
+                <h5><%= bd.location.area %></h5>
+                
+            </li>
+        <% }) %>
+
+       </ul>
+
+    
+   </section>
+
+    
+    
+    <%- include('_footer') %>
+    
+

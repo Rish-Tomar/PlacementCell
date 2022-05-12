@@ -1,4 +1,4 @@
-div{
+#table-div{
     display: flex;
     flex-direction: row;
 
@@ -26,4 +26,8 @@ div{
             }
         }
     }
+}
+
+button{
+    justify-content: space-around;
 }

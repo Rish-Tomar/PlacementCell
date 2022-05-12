@@ -20,3 +20,9 @@ passing a string params :-
      accessing this query params as in our node js use --> req.query
 
 
+
+
+adzuna api url
+https://api.adzuna.com/v1/api/jobs/in/search/5?app_id=b6212235&app_key=c92c425722177749b142d38034c628d8
+
+https://api.adzuna.com/v1/api/jobs/in/search/5?app_id=b6212235&app_key=c92c425722177749b142d38034c628d8&what=Nodejs&what_and=React
