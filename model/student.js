@@ -34,13 +34,9 @@ const studentSchema =new  mongoose.Schema({
     },
     interviews:[
         {
-        company:{
-            type:String},
-        date:{
-            type:Date},
-        result:{
-            type:String}
-        }
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'Interview'
+        }        
         ]  
 })
 

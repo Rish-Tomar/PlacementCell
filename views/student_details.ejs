@@ -49,6 +49,10 @@
     </table>
 </div>
 
-<div id="interview button">
-    <a><button>Add Interview</button></a>    
+<div id="interview-button">
+   <form action="/student/add-interview/?id=<%=record._id%>" method="post">
+       <input type="text" placeholder="Enter Organization's Name">
+       <input type="date" placeholder="Enter Date">
+       <button>Add Interview</button>
+   </form>    
 </div>

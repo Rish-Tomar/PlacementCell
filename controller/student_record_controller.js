@@ -10,6 +10,24 @@ module.exports.studentInput = (req,res)=>{
     })
 }
 
+module.exports.addInterview =async (req,res)=>{
+
+    // return res.redirect('back')
+    try{
+        const stdn =await Student.findById(req.query.id)
+
+        if(stdn){
+            console.log(stdn.interviews)
+        }
+
+
+    }catch(err){
+        console.log('error',err);
+    }
+
+
+}
+
 
 module.exports.studentHomePage = async (req,res)=>{
     const stdn =await Student.find({})
@@ -18,7 +36,6 @@ module.exports.studentHomePage = async (req,res)=>{
         records:stdn
     })
 }
-
 
 
 module.exports.createStudentRecord = async (req,res)=>{
@@ -59,9 +76,8 @@ module.exports.createStudentRecord = async (req,res)=>{
 
 }
 
-
 module.exports.showDetails =async (req,res)=>{
-
+//downloading the file
     console.log(req.query.st_id)
     const data =await Student.findById(req.query.st_id)
 
@@ -70,8 +86,6 @@ module.exports.showDetails =async (req,res)=>{
         title:'details'
     })
 }
-
-
  
 module.exports.handleDownloadFileAsCsv = async (req,res)=>{
     try{
@@ -94,7 +108,6 @@ module.exports.handleDownloadFileAsCsv = async (req,res)=>{
         const fields = ['batch','name','email','mobileNo','college','status','DSA','WebD','React',];
         const opts = { fields };
         const csv = parse(data,opts);
-        console.log(csv);
 
         //writing a csv file
         try{fs.writeFileSync(path.join(__dirname,'../assets/files/details.csv'),csv)}
@@ -103,9 +116,9 @@ module.exports.handleDownloadFileAsCsv = async (req,res)=>{
             //else
             console.log('file written Successsfully');
         }
-        // res.redirect('back')
+        //downloading the file using response.download method
         res.download(path.join(__dirname,'../assets/files/details.csv'))
-        //downloading the file
+        
     }catch(err){
         console.log('err',err);
     }

@@ -1,0 +1,32 @@
+section {
+  display: flex;
+  flex-direction: row; }
+  section #table {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 60%; }
+    section #table thead th {
+      border: 1px solid black;
+      width: 20%;
+      padding: 4px;
+      background-color: #9eebd4; }
+    section #table tbody tr td {
+      border: 1px solid black;
+      padding: 4px;
+      text-align: center;
+      background-color: #dacebd; }
+  section #form {
+    width: 40%;
+    display: flex;
+    flex-direction: column; }
+    section #form form {
+      display: flex;
+      flex-direction: column; }
+      section #form form input {
+        width: 70%;
+        display: flex;
+        margin: auto;
+        margin-top: 5px; }
+      section #form form #button {
+        width: 21%; }

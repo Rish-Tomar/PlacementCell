@@ -9,4 +9,6 @@ router.get('/student-input',studentController.studentInput)
 router.post('/create-student',studentController.createStudentRecord)
 router.get('/show-details/',studentController.showDetails)
 router.get('/download',studentController.handleDownloadFileAsCsv)
+
+router.get('/add-interview/',studentController.addInterview)
 module.exports = router

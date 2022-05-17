@@ -1,0 +1,36 @@
+
+<link rel="stylesheet" href="css/interview.css">
+<section>
+    <div id="table">
+        <table>
+            <thead>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Hiring For</th>
+                <th>options</th>
+            </thead>
+            <tbody>
+                <% interview_details.forEach((data)=>{ %>
+                    <tr>
+                        <td><%= data.companyName %></td>
+                        <td><%= data.date        %></td>
+                        <td><%= data.requirement %></td>
+                        <td><a href="/interview/remove/?id=<%=data._id%>">Remove Interview Details</a></td>
+                    </tr>
+                <% } )%>
+            </tbody>
+        </table>
+    </div>
+    <div id="form">
+        <h4>Create interview</h4>
+        <form action="/interview/create" method="post">
+            <input type="text" name="name"       placeholder="Enter Complany name">
+            <input type="text" name="requireFor" placeholder="domain or skill(react/nodejs/JS etc.)" >
+            <input type="text" name="job_id"     placeholder="Job ID (Company name-month-react/nodejs/JS)">
+            <input type="text" name="date"       placeholder="Enter Date DD/MM/YYYY" >
+            <input type="submit" value="Create Interview" id="button" >
+
+            <p>If name of company is Ninja and it is hiring for React in june 2022 then enter job id as <u>"0622ninreact"</u></p>
+        </form>
+    </div>
+</section>

@@ -1,0 +1,43 @@
+section{
+    display: flex;
+    flex-direction: row;
+    #table{
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+        width:60%;
+        // border: 1px solid black;
+        thead{
+            th{
+                border: 1px solid black;
+                width:20%;
+                padding: 4px;
+                background-color: rgb(158, 235, 212);
+            }
+        }
+        tbody tr td{
+            border: 1px solid black;
+            padding: 4px;
+            text-align: center;
+            background-color: rgb(218, 206, 189);
+        }
+    }
+    #form{
+        width:40%;
+        display: flex;
+        flex-direction: column;
+        form{
+            display: flex;
+            flex-direction: column;
+            input{
+                width:70%;
+                display: flex;
+                margin: auto;
+                margin-top: 5px;
+            }
+            #button{
+                width:21%
+            }
+        }
+    }
+}

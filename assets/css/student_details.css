@@ -17,5 +17,7 @@
       border-bottom: 1px solid #ebebeb;
       text-align: left; }
 
-button {
+#interview-button {
+  margin-top: 10px;
+  display: flex;
   justify-content: space-around; }
