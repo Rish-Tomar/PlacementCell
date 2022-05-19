@@ -1,12 +1,29 @@
 <header id="header">
     
         <strong>Placement Cell</strong>
+
+        <% if (locals.user) { %>
+
+            <div>
+                <a href="/"> Home</a>
+                <a href="/student">Student</a>
+                <a><%= user.name %></a>
+                <a href="/users/sign-out">Sign out</a>
+            </div>
+
+
+        
+        <% }else {%>
+            <div>
+                <a href="/"> Home</a>
+                <a href="/student">Student</a>
+                <a href="/users/sign-in">Sign In</a>
+                <a href="/users/sign-up">Sign Up</a>
+            </div>
+            
+
+        <% }%>
        
-        <div>
-            <a href="/"> Home</a>
-            <a href="/student">Student</a>
-            <a href="/users/sign-in">Sign In</a>
-            <a href="/users/sign-up">Sign Up</a>
-        </div>
+        
         
 </header>

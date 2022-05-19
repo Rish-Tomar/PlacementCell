@@ -7,6 +7,7 @@ const path      =require('path')
 const expressLayouts  = require('express-ejs-layouts')
 const sassMiddleware  = require('node-sass-middleware')
 const cookieParser    = require('cookie-parser')
+const MongoStore = require('connect-mongo')
 
 //used for session cookie and passport authentication
 const session  = require('express-session')
@@ -49,6 +50,7 @@ const app = express()
    app.set('layout extractStyles',true)
    app.set('layout extractScripts',true)
 
+//using mongo store inside session
 //middleware for session and passport authentication
   app.use(session({
      name:'skillTest',
@@ -57,11 +59,22 @@ const app = express()
      resave:false,
      cookie:{
         maxAge:(1000*60*50)
-     }
-  }))
+     },
+     store: MongoStore.create({
+        mongoUrl:'mongodb://localhost/PlacementCell_development',
+        autoRemove:'disabled'
+      },
+      function(err){
+         console.log(err ||'Connected to mongostore db');
+      }
+     )
+   }))
 
   app.use(passport.initialize())
   app.use(passport.session())
+
+  
+app.use(passport.setAuthenticatedUser)
 
    //middleware for using router structure defined in routes folder
    app.use('/',require('./routes'))

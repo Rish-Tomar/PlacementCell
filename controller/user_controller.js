@@ -2,6 +2,9 @@ const User = require('../model/employee')
 
 
 module.exports.signIn = (req,res)=>{
+    if(req.isAuthenticated()){
+        return res.redirect('back')
+    }
     return res.render('user_sign_in',{
         title:'User Sign In'
     })
@@ -10,6 +13,9 @@ module.exports.signIn = (req,res)=>{
 
 
 module.exports.signUp= (req,res)=>{
+    if(req.isAuthenticated()){
+        return res.redirect('back')
+    }
     return res.render('user_sign_up',{
         title:'User Sign Up'
     })
@@ -50,5 +56,10 @@ module.exports.createUser = (req,res)=>{
 
 
 module.exports.createSession = (req,res)=>{
+    return res.redirect('/')
+}
+
+module.exports.destroySession = (req,res)=>{
+    req.logout();
     return res.redirect('/')
 }
