@@ -1,0 +1,28 @@
+
+<link rel="stylesheet" href="/css/int_details.css">
+<h1>interview details page</h1>
+
+
+<div id="outer-div">
+    <div id="inner-div">
+        <table>
+            <thead>
+                <th>Student's Name</th>
+                <th>Batch</th>
+                <th>Student's Email</th>
+            </thead>
+            <tbody>
+                
+                    <% data.students.forEach( (datum)=>{ %>
+                        <tr>
+                          <td><%= datum.details.name %></td>
+                          <td><%= datum.batch %></td>
+                          <td><%= datum.details.email %></td>
+                       </tr>
+                    <% }) %>
+
+               
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-const User = require('../model/user')
+const User = require('../model/employee')
 
 
 module.exports.signIn = (req,res)=>{
@@ -32,13 +32,11 @@ module.exports.createUser = (req,res)=>{
 
         //if user doesnot exist then create one
         if(!user){
-            User.create( { userID:req.body.useremail,
-                           name:req.body.username,
-                           password:req.body.password}, (err,user)=>{
+            User.create( req.body, (err,user)=>{
                 if(err){console.log('error in creating user',err);return}
 
                 //if no error then set user variables  
-
+                console.log(user)
 
             })
 
@@ -46,6 +44,11 @@ module.exports.createUser = (req,res)=>{
     })
 
 
-    console.log("this is :",req.body.useremail)
-    return res.redirect('back')
+    console.log("this is :",req.body)
+    return res.redirect('/users/sign-in')
+}
+
+
+module.exports.createSession = (req,res)=>{
+    return res.redirect('/')
 }

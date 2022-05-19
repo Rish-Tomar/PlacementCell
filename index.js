@@ -7,6 +7,12 @@ const path      =require('path')
 const expressLayouts  = require('express-ejs-layouts')
 const sassMiddleware  = require('node-sass-middleware')
 const cookieParser    = require('cookie-parser')
+
+//used for session cookie and passport authentication
+const session  = require('express-session')
+const passport = require('passport')
+const passportLocal = require('./config/passport-local-strategy')
+
 //some other requirements
 const app = express()
 
@@ -18,13 +24,13 @@ const app = express()
 //middlewares
 //setting ejs as our view template and setting it's path 
 
-app.use(sassMiddleware({
-       src: path.join(__dirname,'./assets/scss'),
-       dest: path.join(__dirname,'./assets/css'),
-       debug: true,
-       outputStyle: 'extended',
-       prefix: '/css'
-   }))
+// app.use(sassMiddleware({
+//        src: path.join(__dirname,'./assets/scss'),
+//        dest: path.join(__dirname,'./assets/css'),
+//        debug: true,
+//        outputStyle: 'extended',
+//        prefix: '/css'
+//    }))
 
 //middleware for url requests and cookies  
    app.use(express.urlencoded())
@@ -43,7 +49,21 @@ app.use(sassMiddleware({
    app.set('layout extractStyles',true)
    app.set('layout extractScripts',true)
 
-//middleware for using router structure defined in routes folder
+//middleware for session and passport authentication
+  app.use(session({
+     name:'skillTest',
+     secret:'placementcell',
+     saveUninitialized:false,
+     resave:false,
+     cookie:{
+        maxAge:(1000*60*50)
+     }
+  }))
+
+  app.use(passport.initialize())
+  app.use(passport.session())
+
+   //middleware for using router structure defined in routes folder
    app.use('/',require('./routes'))
 
 

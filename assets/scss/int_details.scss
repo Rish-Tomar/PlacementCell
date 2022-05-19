@@ -1,0 +1,26 @@
+#outer-div{
+    margin-left: 10%;
+    margin:auto;
+    #inner-div{
+        width:80%;
+        table{
+            border: 1px solid black;
+            thead{
+                th{
+                    border: 1px solid black;
+                    width:20%;
+                    padding: 4px;
+                    background-color: rgb(158, 235, 212);
+                }
+            }
+            tbody tr td{
+                border-left: 1px solid black;
+                border-right:1px solid black ;
+                border-bottom: 1px solid black;
+                padding: 4px;
+                text-align: center;
+                background-color: rgb(218, 206, 189);
+            }
+        }
+    }
+}
