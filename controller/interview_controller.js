@@ -1,6 +1,5 @@
 const Intview =require('../model/interviews')
-
-
+const Student =require('../model/student')
 
 
 module.exports.InterviewHome=async (req,res)=>{
@@ -45,6 +44,18 @@ module.exports.createInterview=async (req,res)=>{
 module.exports.remove=async (req,res)=>{
 
     console.log(req.query.id);
+
+    //deleting this interview entry from student's interview array
+    const data=await Intview.findById(req.query.id)
+    data.students.forEach(element => {
+
+        //find the student and update records
+        const std=Student.findByIdAndUpdate(element,{$pull:{interviews:req.query.id}},function(err){
+            if(err){console.log('error',err)}
+            console.log(std.interviews)
+        })
+    });
+
     //delete interview from interviews schema 
     Intview.findByIdAndDelete(req.query.id,(err)=>{
         if(err){ console.log('error while deleting',err)
