@@ -43,8 +43,6 @@ module.exports.createInterview=async (req,res)=>{
 
 module.exports.remove=async (req,res)=>{
 
-    console.log(req.query.id);
-
     //deleting this interview entry from student's interview array
     const data=await Intview.findById(req.query.id)
     data.students.forEach(element => {
@@ -60,17 +58,8 @@ module.exports.remove=async (req,res)=>{
     Intview.findByIdAndDelete(req.query.id,(err)=>{
         if(err){ console.log('error while deleting',err)
                   return}
-        console.log('deleted')
         res.redirect('back')
-    
     })
-    
-   
-
-
-    //delete interview from individual student interviews schema
-
-
 }
 
 

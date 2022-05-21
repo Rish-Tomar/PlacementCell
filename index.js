@@ -1,4 +1,4 @@
-// imports and some required constants
+/* DEFINING ALL VARIABLES AND IMPORT SECTION */
 const PORT      = 8000
 const db        = require('./config/mongoose')
 const express   = require('express')
@@ -14,17 +14,12 @@ const session  = require('express-session')
 const passport = require('passport')
 const passportLocal = require('./config/passport-local-strategy')
 
-//some other requirements
+//
 const app = express()
 
+/* MIDDLEWARES */ 
 
-//database
-
-
-
-//middlewares
-//setting ejs as our view template and setting it's path 
-
+//middleware to convert our scss to css and save to a folder
 app.use(sassMiddleware({
        src: path.join(__dirname,'./assets/scss'),
        dest: path.join(__dirname,'./assets/css'),
@@ -37,7 +32,7 @@ app.use(sassMiddleware({
    app.use(express.urlencoded())
    app.use(cookieParser())
 
-//middleware for views
+//setting ejs as our view template and setting it's path
    app.set('view engine','ejs')
    app.set('views',path.join(__dirname,'views'))
 
@@ -69,11 +64,9 @@ app.use(sassMiddleware({
       }
      )
    }))
-
   app.use(passport.initialize())
   app.use(passport.session())
-
-  
+  //middleware for saving the users information in cookies
 app.use(passport.setAuthenticatedUser)
 
    //middleware for using router structure defined in routes folder
