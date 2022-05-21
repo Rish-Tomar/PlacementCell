@@ -41,18 +41,33 @@
         </tr>
     </table>
 
+   <div id="div-table2">
     <table id="table2">
-        <tr>
-            <th>Company</th>
-            <td>Falana Dhimakka</td>
-        </tr>
+        <thead>
+            <th>Company Name</th>
+            <th>Date</th>
+        </thead>
+        <tbody>            
+            <% record.interviews.forEach( (intview)=>{%>
+                <tr>
+                    <td><%=intview.companyName %></td>
+                    <td><%=intview.date %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+       
     </table>
+   </div>
 </div>
 
 <div id="interview-button">
    <form action="/student/add-interview/?id=<%=record._id%>" method="post">
-       <input type="text" placeholder="Enter Organization's Name">
-       <input type="date" placeholder="Enter Date">
+       <select name="interview">
+           <option value="">Select Interviews</option>
+           <% interviews.forEach( (i)=>{ %>
+            <option value="<%= i._id%>"><h6><%= i.companyName %></h6> &nbsp &nbsp<h6><%= i.date%></h6></option>
+           <% }) %>
+       </select>
        <button>Add Interview</button>
    </form>    
 </div>

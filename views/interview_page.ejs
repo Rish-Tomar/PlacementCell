@@ -7,7 +7,8 @@
                 <th>Name</th>
                 <th>Date</th>
                 <th>Hiring For</th>
-                <th>options</th>
+                <th>option 1</th>
+                <th>option 2</th>
             </thead>
             <tbody>
                 <% interview_details.forEach((data)=>{ %>
@@ -15,6 +16,7 @@
                         <td><%= data.companyName %></td>
                         <td><%= data.date        %></td>
                         <td><%= data.requirement %></td>
+                        <td><a href="/interview/details/?id=<%=data._id%>">Details</a></td>
                         <td><a href="/interview/remove/?id=<%=data._id%>">Remove Interview Details</a></td>
                     </tr>
                 <% } )%>

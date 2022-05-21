@@ -5,11 +5,8 @@
     #table1{
         margin-left: 25%;
     }
-    #table2{
-        margin-left: 15%;
-    }
     //common style for both the tables
-    table{
+    #table1{
         // border: 1px solid black;
         width:23%;
         margin-top: 20px;
@@ -24,6 +21,18 @@
                 border-bottom: 1px solid rgb(235, 235, 235);
                 text-align: left;
             }
+        }
+    }
+    #div-table2{
+        margin-left: 15%;
+        #table2{
+            tr{    
+                td{
+                    width: 90px;
+                    padding:8px;
+                    margin-right: 3px;
+                    border-bottom: 1px solid rgb(241, 240, 240);
+                }}   
         }
     }
 }

@@ -63,3 +63,13 @@ module.exports.remove=async (req,res)=>{
 }
 
 
+module.exports.seeEachInterviewStudentsAssigned =async (req,res)=>{
+    const interviewData = await Intview.findById(req.query.id).populate('students')
+    
+    console.log(interviewData)
+    return res.render('interview_details',{
+        title:'Interview Details',
+        data:interviewData
+    })
+
+}

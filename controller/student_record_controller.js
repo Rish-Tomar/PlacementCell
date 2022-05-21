@@ -3,6 +3,7 @@ const Student = require('../model/student')
 const { parse } = require('json2csv');
 const fs = require('fs')
 const path = require('path')
+const Interview = require('../model/interviews')
 
 module.exports.studentInput = (req,res)=>{
     return res.render('student_entry_page',{
@@ -17,15 +18,29 @@ module.exports.addInterview =async (req,res)=>{
         const stdn =await Student.findById(req.query.id)
 
         if(stdn){
-            console.log(stdn.interviews)
+
+            console.log("this is stdn ",stdn)
+
+            if(stdn.interviews.includes(req.body.interview)){
+                console.log('Cannot add interview , already exists')
+                return res.redirect('back')
+            }
+            else{
+                //save interview to students database
+               stdn.interviews.push(req.body.interview)
+               stdn.save()
+
+               //save students details to interview database
+               const intview = await Interview.findById(req.body.interview)
+               intview.students.push(stdn._id)
+               intview.save()
+
+               return res.redirect('back')
+            }
         }
-
-
     }catch(err){
         console.log('error',err);
     }
-
-
 }
 
 
@@ -79,11 +94,15 @@ module.exports.createStudentRecord = async (req,res)=>{
 module.exports.showDetails =async (req,res)=>{
 //downloading the file
     console.log(req.query.st_id)
-    const data =await Student.findById(req.query.st_id)
+    const data =await Student.findById(req.query.st_id).populate('interviews')
+    
+    const intview = await Interview.find()
 
+    console.log("interviews here",intview)
     return res.render('student_details',{
         record:data,
-        title:'details'
+        title:'details',
+        interviews:intview
     })
 }
  
@@ -125,3 +144,4 @@ module.exports.handleDownloadFileAsCsv = async (req,res)=>{
 
 
 }
+

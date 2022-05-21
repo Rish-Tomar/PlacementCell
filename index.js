@@ -25,13 +25,13 @@ const app = express()
 //middlewares
 //setting ejs as our view template and setting it's path 
 
-// app.use(sassMiddleware({
-//        src: path.join(__dirname,'./assets/scss'),
-//        dest: path.join(__dirname,'./assets/css'),
-//        debug: true,
-//        outputStyle: 'extended',
-//        prefix: '/css'
-//    }))
+app.use(sassMiddleware({
+       src: path.join(__dirname,'./assets/scss'),
+       dest: path.join(__dirname,'./assets/css'),
+       debug: true,
+       outputStyle: 'extended',
+       prefix: '/css'
+   }))
 
 //middleware for url requests and cookies  
    app.use(express.urlencoded())

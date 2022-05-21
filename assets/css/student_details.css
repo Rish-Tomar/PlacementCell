@@ -3,19 +3,26 @@
   flex-direction: row; }
   #table-div #table1 {
     margin-left: 25%; }
-  #table-div #table2 {
-    margin-left: 15%; }
-  #table-div table {
+  #table-div #table1 {
     width: 23%;
     margin-top: 20px; }
-    #table-div table tr td {
+    #table-div #table1 tr td {
       width: 50px;
       padding: 8px;
       margin-right: 3px;
       border-bottom: 1px solid #f1f0f0; }
-    #table-div table tr th {
+    #table-div #table1 tr th {
       border-bottom: 1px solid #ebebeb;
       text-align: left; }
+  #table-div #div-table2 {
+    margin-left: 15%; }
+    #table-div #div-table2 #table2 tr {
+      width: 120px; }
+      #table-div #div-table2 #table2 tr td {
+        width: 90px;
+        padding: 8px;
+        margin-right: 3px;
+        border-bottom: 1px solid #f1f0f0; }
 
 #interview-button {
   margin-top: 10px;

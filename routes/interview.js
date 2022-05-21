@@ -6,5 +6,5 @@ const interviewDetails= require('../controller/interview_controller')
 router.get('/',passport.checkAuthentication,interviewDetails.InterviewHome)
 router.post('/create',interviewDetails.createInterview)
 router.get('/remove',interviewDetails.remove)
-
+router.get('/details',interviewDetails.seeEachInterviewStudentsAssigned)
 module.exports=router

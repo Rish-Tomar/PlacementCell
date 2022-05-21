@@ -10,11 +10,11 @@ router.get('/', passport.checkAuthentication, studentController.studentHomePage)
 router.get('/student-input',studentController.studentInput)
 router.get('/show-details/',studentController.showDetails)
 router.get('/download',studentController.handleDownloadFileAsCsv)
-router.get('/add-interview/',studentController.addInterview)
+
 
 
 /* ALL POST REQUESTS*/
 router.post('/create-student',studentController.createStudentRecord)
-
+router.post('/add-interview/',studentController.addInterview)
 
 module.exports = router
