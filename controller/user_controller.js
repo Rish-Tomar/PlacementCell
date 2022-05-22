@@ -43,7 +43,10 @@ module.exports.createUser =(req,res)=>{
             })
            
         }
-        return res.redirect('/users/sign-up')
+        if(user){
+            return res.redirect('/users/sign-up')
+        }
+        
     })
     
 }
