@@ -1,3 +1,5 @@
+
+require('dotenv').config()
 /* DEFINING ALL VARIABLES AND IMPORT SECTION */
 const PORT      = 8000
 const db        = require('./config/mongoose')
@@ -13,13 +15,15 @@ const MongoStore = require('connect-mongo')
 const session  = require('express-session')
 const passport = require('passport')
 const passportLocal = require('./config/passport-local-strategy')
+// environment variables
+const env= require('./config/environment') 
 
-//
 const app = express()
 
 /* MIDDLEWARES */ 
 
 //middleware to convert our scss to css and save to a folder
+if(env.name=='development'){
 app.use(sassMiddleware({
        src: path.join(__dirname,'./assets/scss'),
        dest: path.join(__dirname,'./assets/css'),
@@ -27,7 +31,7 @@ app.use(sassMiddleware({
        outputStyle: 'extended',
        prefix: '/css'
    }))
-
+}
 //middleware for url requests and cookies  
    app.use(express.urlencoded())
    app.use(cookieParser())
@@ -49,7 +53,7 @@ app.use(sassMiddleware({
 //middleware for session and passport authentication
   app.use(session({
      name:'skillTest',
-     secret:'placementcell',
+     secret:env.session_cookie_key,
      saveUninitialized:false,
      resave:false,
      cookie:{
@@ -74,7 +78,7 @@ app.use(passport.setAuthenticatedUser)
 
 
 //listining on port
-app.listen(PORT, (err) => {
+app.listen(process.env.PORT, (err) => {
     if(err){
         console.log('Server connot be started',err);
     }

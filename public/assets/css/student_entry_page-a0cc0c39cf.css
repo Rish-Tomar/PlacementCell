@@ -1,0 +1,36 @@
+div {
+  margin: auto;
+  width: 80%; }
+  div form {
+    display: flex;
+    flex-direction: column; }
+    div form #inputs-div {
+      display: flex;
+      flex-direction: row;
+      border-radius: 5px;
+      background-color: #4e6d62; }
+      div form #inputs-div #student-details {
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+        padding: 10px; }
+        div form #inputs-div #student-details input {
+          padding: 3px;
+          margin: 2px; }
+      div form #inputs-div #students-marks-interview {
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+        padding: 10px; }
+        div form #inputs-div #students-marks-interview input {
+          padding: 3px;
+          margin: 2px; }
+    div form #button-div {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 15px; }
+      div form #button-div button:hover {
+        background-color: #8cb5da;
+        border: none;
+        border-radius: 5px;
+        padding: 5px; }

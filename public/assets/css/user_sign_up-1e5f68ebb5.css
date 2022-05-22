@@ -1,0 +1,41 @@
+#sign-up-div {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-around; }
+  #sign-up-div #user_sign_up {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #b3b3ae;
+    width: 30%;
+    height: 350px; }
+    #sign-up-div #user_sign_up #for-google-signup {
+      border: 1px solid black;
+      width: 70%;
+      height: 30px;
+      text-align: center;
+      padding-top: 9px;
+      background-color: #e08308; }
+      #sign-up-div #user_sign_up #for-google-signup a {
+        text-decoration: none;
+        margin-top: 2px;
+        color: antiquewhite; }
+    #sign-up-div #user_sign_up #for-google-signup:hover {
+      background-color: #b87b2b; }
+    #sign-up-div #user_sign_up #user_sign_up_form {
+      text-align: center; }
+      #sign-up-div #user_sign_up #user_sign_up_form input {
+        margin: 2px;
+        width: 70%;
+        height: 35px;
+        border: 1px solid #9e8c8c;
+        background-color: #b3b3ae;
+        border-radius: 5px; }
+  #sign-up-div hr {
+    color: black; }
+  #sign-up-div #for-sign-in {
+    border-top: 1px solid #0e0d0d;
+    width: 70%;
+    text-align: center;
+    margin-top: -5px;
+    padding-top: 8px; }

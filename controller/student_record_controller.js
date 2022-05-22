@@ -5,22 +5,29 @@ const fs = require('fs')
 const path = require('path')
 const Interview = require('../model/interviews')
 
+
+//module to handle "/student" request
+module.exports.studentHomePage = async (req,res)=>{
+    const stdn =await Student.find({})
+    return res.render('student_home',{
+        title:'student home',
+        records:stdn
+    })
+}
+
+//module to render entery page of student details
 module.exports.studentInput = (req,res)=>{
     return res.render('student_entry_page',{
         title:'student input'
     })
 }
 
+//module to handle assigning interview to the student
 module.exports.addInterview =async (req,res)=>{
-
-    // return res.redirect('back')
     try{
         const stdn =await Student.findById(req.query.id)
-
         if(stdn){
-
             console.log("this is stdn ",stdn)
-
             if(stdn.interviews.includes(req.body.interview)){
                 console.log('Cannot add interview , already exists')
                 return res.redirect('back')
@@ -34,7 +41,6 @@ module.exports.addInterview =async (req,res)=>{
                const intview = await Interview.findById(req.body.interview)
                intview.students.push(stdn._id)
                intview.save()
-
                return res.redirect('back')
             }
         }
@@ -44,13 +50,6 @@ module.exports.addInterview =async (req,res)=>{
 }
 
 
-module.exports.studentHomePage = async (req,res)=>{
-    const stdn =await Student.find({})
-    return res.render('student_home',{
-        title:'student home',
-        records:stdn
-    })
-}
 
 
 module.exports.createStudentRecord = async (req,res)=>{
@@ -75,30 +74,23 @@ module.exports.createStudentRecord = async (req,res)=>{
                 
                       }
                 })
-                if(stdn){
-
-                    console.log('Student Created',stdn);
-                }
         }
-
         console.log(req.body)
         res.redirect('back')
-
     }catch(err){
         console.log('error',err)
-
-    }
-
+    } 
 }
 
-module.exports.showDetails =async (req,res)=>{
-//downloading the file
-    console.log(req.query.st_id)
-    const data =await Student.findById(req.query.st_id).populate('interviews')
-    
-    const intview = await Interview.find()
 
-    console.log("interviews here",intview)
+//showing details of the student over 'student details view page'
+module.exports.showDetails =async (req,res)=>{
+
+    /* Fetching student's data into 'data' variable
+       and
+       all interview available into 'intview' variable and the passing as the response data  */
+    const data =await Student.findById(req.query.st_id).populate('interviews')
+    const intview = await Interview.find()
     return res.render('student_details',{
         record:data,
         title:'details',
@@ -136,8 +128,7 @@ module.exports.handleDownloadFileAsCsv = async (req,res)=>{
             console.log('file written Successsfully');
         }
         //downloading the file using response.download method
-        res.download(path.join(__dirname,'../assets/files/details.csv'))
-        
+        res.download(path.join(__dirname,'../assets/files/details.csv'))      
     }catch(err){
         console.log('err',err);
     }

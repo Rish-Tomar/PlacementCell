@@ -31,13 +31,6 @@ module.exports.createInterview=async (req,res)=>{
     const allDetails = await Intview.find({})
 
     res.redirect('/interview')
-
-    // return res.render('interview_page',{
-    //     title:'Interview Details',
-    //     interview_details:allDetails
-
-    // })
-
 }
 
 
