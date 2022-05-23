@@ -44,6 +44,7 @@ module.exports.createUser =(req,res)=>{
            
         }
         if(user){
+            console.log('user already exists, go to sign in')
             return res.redirect('/users/sign-up')
         }
         

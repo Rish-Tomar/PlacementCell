@@ -1,6 +1,6 @@
 
 
-require('dotenv').config()
+// require('dotenv').config()
 const development = {
     name:'development',
     asset_path:'./assets',
