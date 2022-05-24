@@ -51,6 +51,7 @@ module.exports.remove=async (req,res)=>{
     Intview.findByIdAndDelete(req.query.id,(err)=>{
         if(err){ console.log('error while deleting',err)
                   return}
+        req.flash('success','interview deleted')
         res.redirect('back')
     })
 }

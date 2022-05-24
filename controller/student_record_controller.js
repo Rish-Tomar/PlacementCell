@@ -29,6 +29,7 @@ module.exports.addInterview =async (req,res)=>{
         if(stdn){
             console.log("this is stdn ",stdn)
             if(stdn.interviews.includes(req.body.interview)){
+                req.flash('error','Cannot add interview, it is already assigned')
                 console.log('Cannot add interview , already exists')
                 return res.redirect('back')
             }
@@ -41,6 +42,7 @@ module.exports.addInterview =async (req,res)=>{
                const intview = await Interview.findById(req.body.interview)
                intview.students.push(stdn._id)
                intview.save()
+               req.flash('success','Interview Assigned')
                return res.redirect('back')
             }
         }
@@ -53,7 +55,6 @@ module.exports.addInterview =async (req,res)=>{
 
 
 module.exports.createStudentRecord = async (req,res)=>{
-
     try{
         student =await Student.findOne({details:{email:req.body.email}})
         if(!student){
@@ -76,6 +77,7 @@ module.exports.createStudentRecord = async (req,res)=>{
                 })
         }
         console.log(req.body)
+        req.flash('success','Record Created')
         res.redirect('back')
     }catch(err){
         console.log('error',err)

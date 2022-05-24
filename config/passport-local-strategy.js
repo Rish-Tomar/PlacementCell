@@ -4,19 +4,22 @@ const User = require('../model/employee')
 
 
 passport.use(new Localstrategy({
-    usernameField:'empid'
+    usernameField:'empid',
+    passReqToCallback:true
 
-},(empid,password,done)=>{
+},(req,empid,password,done)=>{
 
     //find the user
     User.findOne({empid:empid},(err,user)=>{
         if(err){
+            req.flash('error',err)
             console.log('error in finding user',err);
             return done(err)
         }
 
         if(!user || user.password != password)
         {
+            req.flash('error','Invalid Request')
             console.log('Invalid Request');
             return done(null,false);
         }

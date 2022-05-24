@@ -38,7 +38,7 @@ module.exports.createUser =(req,res)=>{
         if(!user){
             User.create( req.body, (err,user)=>{
                 if(err){console.log('error in creating user',err);return}
-
+                
                 return res.redirect('/users/sign-in')
             })
            
@@ -55,6 +55,7 @@ module.exports.createUser =(req,res)=>{
 
 //module to handle "/users/create-session" request
 module.exports.createSession = (req,res)=>{
+    req.flash('success','Logged in successfully')
     return res.redirect('/')
 }
 
@@ -63,5 +64,6 @@ module.exports.createSession = (req,res)=>{
 module.exports.destroySession = (req,res)=>{
     //using logout function provided by passport
     req.logout();
+    req.flash('success','Logged out successfully')
     return res.redirect('/')
 }

@@ -11,6 +11,8 @@ const sassMiddleware  = require('node-sass-middleware')
 const cookieParser    = require('cookie-parser')
 const MongoStore = require('connect-mongo')
 
+const Flash = require('connect-flash')
+const flashMiddleware = require('./config/flashMiddleware')
 //used for session cookie and passport authentication
 const session  = require('express-session')
 const passport = require('passport')
@@ -74,6 +76,10 @@ console.log(process.env.SessionCookie)
   app.use(passport.session())
   //middleware for saving the users information in cookies
 app.use(passport.setAuthenticatedUser)
+
+//using flash 'connect-flash'
+app.use(Flash())
+app.use(flashMiddleware.setFlash)
 
    //middleware for using router structure defined in routes folder
    app.use('/',require('./routes'))
