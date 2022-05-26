@@ -1,7 +1,7 @@
 
 require('dotenv').config()
 /* DEFINING ALL VARIABLES AND IMPORT SECTION */
-const PORT      = 8000
+const PORT      = process.env.PORT || 8000
 const db        = require('./config/mongoose')
 const express   = require('express')
 const res       = require('express/lib/response')
