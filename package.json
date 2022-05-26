@@ -6,10 +6,10 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build":"node index.js",
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d build"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "14.15.4"
   },
   "author": "Rishabh Tomar",
   "license": "ISC",
