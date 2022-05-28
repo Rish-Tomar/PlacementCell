@@ -1,13 +1,13 @@
 const mongoose = require('mongoose')
 const env = require('./environment')
 
-mongoose.connect(`mongodb://localhost/${env.db}`)
+// mongoose.connect(`mongodb://localhost/${env.db}`)
 
-// const connection_url ='mongodb+srv://admin:rootroot@cluster.rxsa9.mongodb.net/Database1?retryWrites=true&w=majority'
-// mongoose.connect(connection_url,{
-//     useNewUrlParser:true,
-//     useUnifiedTopology:true,
-// })
+const connection_url ='mongodb+srv://admin:rootroot@cluster.rxsa9.mongodb.net/Database1?retryWrites=true&w=majority'
+mongoose.connect(connection_url,{
+    useNewUrlParser:true,
+    useUnifiedTopology:true,
+})
 
 const db=mongoose.connection
 
