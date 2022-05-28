@@ -1,18 +1,19 @@
 
 
-require('dotenv').config()
+// require('dotenv').config()
 const development = {
     name:'development',
     asset_path:'./assets',
-    session_cookie_key:process.env.SessionCookie,
+    session_cookie_key:process.env.SessionCookieKey,
     db:process.env.DB,
 }
+
 
 
 const production = {
     name:'production',
     asset_path:process.env.AssetsPath,
-    session_cookie_key:process.env.SessionCookie,
+    session_cookie_key:process.env.SessionCookieKey,
     db:process.env.DB,
 
 }

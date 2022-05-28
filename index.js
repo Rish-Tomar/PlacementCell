@@ -1,5 +1,5 @@
 
-require('dotenv').config()
+// require('dotenv').config()
 /* DEFINING ALL VARIABLES AND IMPORT SECTION */
 const PORT      = process.env.PORT || 8000
 const db        = require('./config/mongoose')
@@ -35,7 +35,7 @@ app.use(sassMiddleware({
    }))
 }
 //middleware for url requests and cookies  
-   app.use(express.urlencoded())
+   app.use(express.urlencoded({extended: false}))
    app.use(cookieParser())
 
 //setting ejs as our view template and setting it's path
