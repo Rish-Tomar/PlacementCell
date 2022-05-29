@@ -9,6 +9,8 @@ const connection_url ='mongodb+srv://admin:rootroot@cluster0.6c9um.mongodb.net/?
 mongoose.connect(connection_url,{
     useNewUrlParser:true,
     useUnifiedTopology:true,
+    useCreateIndex:true,
+    useFindAndModify: false,
 }).then(()=>{console.log('connected to atlas')})
 .catch((err)=> console.log('error',err))
 
