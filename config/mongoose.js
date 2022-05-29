@@ -7,7 +7,8 @@ const env = require('./environment')
 
 const connection_url ='mongodb+srv://admin:rootroot@cluster0.6c9um.mongodb.net/?retryWrites=true&w=majority'
 mongoose.connect(connection_url,{
-    useNewUrlParser:true
+    useNewUrlParser:true,
+    useUnifiedTopology:true,
 }).then(()=>{console.log('connected to atlas')})
 .catch((err)=> console.log('error',err))
 
