@@ -53,8 +53,7 @@ app.use(sassMiddleware({
 
 //using mongo store inside session
 //middleware for session and passport authentication
-console.log(process.env.PORT)
-console.log(process.env.SessionCookieKey)
+
   app.use(session({
      name:'skillTest',
      secret:env.session_cookie_key,
