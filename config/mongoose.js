@@ -2,9 +2,12 @@ const mongoose = require('mongoose')
 const env = require('./environment')
 
 // mongoose.connect(`mongodb://localhost/${env.db}`)
-const connection_url ='mongodb+srv://admin:rootroot@cluster.rxsa9.mongodb.net/?retryWrites=true&w=majority'
-mongoose.connect(connection_url).catch((err)=>{
-    console.log('there is a error',err)
+
+const connection_url ='mongodb+srv://admin:rootroot@cluster0.6c9um.mongodb.net/Pcell?retryWrites=true&w=majority'
+mongoose.connect(connection_url).then(()=>{
+    console.log('connection successful')
+}).catch((err)=>{
+    console.log('no connection')
 })
 
 const db=mongoose.connection
