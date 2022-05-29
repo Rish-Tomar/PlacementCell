@@ -5,10 +5,10 @@ const env = require('./environment')
 
 // mongoose.connect(`mongodb://localhost/PlacementCell_development`)
 
-const connection_url ='mongodb+srv://admin:rootroot@cluster0.6c9um.mongodb.net/?retryWrites=true&w=majority?directConnection=true'
+const connection_url ='mongodb+srv://admin:rootroot@cluster0.6c9um.mongodb.net/?retryWrites=true&w=majority&directConnection=true'
 mongoose.connect(connection_url,{
     useNewUrlParser:true,
-    useUnifiedTopology:true,
+    useUnifiedTopology:false,
 }).then(()=>{console.log('connected to atlas')})
 .catch((err)=> console.log('error',err))
 
