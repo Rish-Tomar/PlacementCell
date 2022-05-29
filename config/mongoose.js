@@ -7,8 +7,7 @@ const env = require('./environment')
 
 const connection_url ='mongodb+srv://admin:rootroot@cluster0.6c9um.mongodb.net/?retryWrites=true&w=majority'
 mongoose.connect(connection_url,{
-    useNewUrlParser:true,
-    useUnifiedTopology:true,
+    useNewUrlParser:true
 })
 
 const db=mongoose.connection
