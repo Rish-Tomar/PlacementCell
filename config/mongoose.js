@@ -6,7 +6,6 @@ const env = require('./environment')
 const connection_url ='mongodb+srv://admin:rootroot@cluster.rxsa9.mongodb.net/Database1?retryWrites=true&w=majority'
 mongoose.connect(connection_url,{
     useNewUrlParser:true,
-    useUnifiedTopology:true,
 }).catch((err)=>{
     console.log('there is a error',err)
 })
