@@ -3,13 +3,13 @@ const env = require('./environment')
 
 // mongoose.connect(`mongodb://localhost/${env.db}`)
 
-mongoose.connect(`mongodb://localhost/PlacementCell_development`)
+// mongoose.connect(`mongodb://localhost/PlacementCell_development`)
 
-// const connection_url ='mongodb+srv://admin:rootroot@cluster0.6c9um.mongodb.net/?retryWrites=true&w=majority'
-// mongoose.connect(connection_url,{
-//     useNewUrlParser:true
-// }).then(()=>{console.log('connected to atlas')})
-// .catch((err)=> console.log('error',err))
+const connection_url ='mongodb+srv://admin:rootroot@cluster0.6c9um.mongodb.net/?retryWrites=true&w=majority'
+mongoose.connect(connection_url,{
+    useNewUrlParser:true
+}).then(()=>{console.log('connected to atlas')})
+.catch((err)=> console.log('error',err))
 
 const db=mongoose.connection
 
