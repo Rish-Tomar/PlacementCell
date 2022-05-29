@@ -7,6 +7,8 @@ const connection_url ='mongodb+srv://admin:rootroot@cluster.rxsa9.mongodb.net/Da
 mongoose.connect(connection_url,{
     useNewUrlParser:true,
     useUnifiedTopology:true,
+}).catch((err)=>{
+    console.log('there is a error',err)
 })
 
 const db=mongoose.connection
